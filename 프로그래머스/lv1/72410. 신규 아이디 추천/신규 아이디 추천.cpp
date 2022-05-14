@@ -2,46 +2,33 @@
 
 using namespace std;
 
+void pattern1(string &s) {
+    int size = s.size();
+    for(int i=0; i<size; ++i) {
+        if(s[i] >= 'A' && s[i] <= 'Z')
+            s[i] += 32;
+    }
+}
+
 string solution(string new_id) {
     string answer = "";
+
+    regex p2 ("[^\\w-_.]");
+    regex p3 ("\\.+");
+    regex p4 ("^\\.|\\.$");
+    regex p5 ("^$");
     
-    int SIZE = new_id.size();
-    for(int i=0; i<SIZE; ++i) {
-        char ch = new_id[i];
-        if(ch >= 'A' && ch <= 'Z') {
-            answer += (ch += 32);
-        } else if(ch == '-') {
-            answer += '-';
-        } else if(ch == '_') {
-            answer += '_';
-        } else if(ch == '.') {
-            answer += '.';
-        } else if(isalnum(ch)) {
-            answer += ch;
-        }
-    }
+    answer = regex_replace(new_id, p2, "");
+    answer = regex_replace(answer, p3, ".");
+    answer = regex_replace(answer, p4, "");
+    answer = regex_replace(answer, p5, "a");
     
-    new_id = answer;
-    bool wasDot = false;
-    answer = "";
-    SIZE = new_id.size();
-    for(int i=0; i<SIZE; ++i) {
-        if(answer.size() > 14) break; 
-        if(new_id[i] == '.' && !wasDot && answer.size() > 0) {
-            answer += new_id[i];
-            wasDot = true;
-        } else if(new_id[i] != '.') {
-            answer += new_id[i];
-            wasDot = false;
-        }
-    }
+    pattern1(answer);
     
-    if(answer[answer.size()-1] == '.') {
-        answer.pop_back();
-    }
+    answer = answer.substr(0, 15);
+    answer = regex_replace(answer, p4, "");
     
-    if(answer.size() == 0) answer += "a";
-    
+    //pattern 7
     while(answer.size() < 3) {
         answer += answer[answer.size()-1];
     }

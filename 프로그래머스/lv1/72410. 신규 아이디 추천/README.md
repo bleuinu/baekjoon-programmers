@@ -1,10 +1,10 @@
 # [level 1] 신규 아이디 추천 - 72410 
 
-[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/72410#qna) 
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/72410?language=cpp) 
 
 ### 성능 요약
 
-메모리: 3.57 MB, 시간: 0.02 ms
+메모리: 4.16 MB, 시간: 0.20 ms
 
 ### 구분
 
