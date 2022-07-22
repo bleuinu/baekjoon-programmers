@@ -1,10 +1,10 @@
 # [level 1] 내적 - 70128 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/70128) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/70128?language=ruby) 
 
 ### 성능 요약
 
-메모리: 4.1 MB, 시간: 0.01 ms
+메모리: 13.9 MB, 시간: 0.06 ms
 
 ### 구분
 
