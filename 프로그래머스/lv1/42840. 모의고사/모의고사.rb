@@ -14,22 +14,13 @@ def solution(answers)
         s3.push(s3.shift)
     }
 
-    answer = nil
+    answer = []
 
-    if c1 == c2 and c2 == c3
-        answer = [1, 2, 3]
-    elsif c1 == c2 and c1 > c3
-        answer = [1, 2]
-    elsif c2 == c3 and c2 > c1
-        answer = [2, 3]
-    elsif c1 == c3 and c1 > c2
-        answer = [1, 3]
-    elsif c1 > c2 and c1 > c3
-        answer = [1]
-    elsif c2 > c1 and c2 > c3
-        answer = [2]
-    elsif c3 > c1 and c3 > c2
-        answer = [3]
-    end
+    max_val = [c1, c2, c3].max
+    [c1, c2, c3].each_with_index {|x, i| 
+        if x == max_val
+            answer.push i+1
+        end
+    }
     return answer
 end
