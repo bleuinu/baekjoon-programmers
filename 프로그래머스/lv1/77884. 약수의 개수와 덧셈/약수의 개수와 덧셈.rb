@@ -1,12 +1,18 @@
 require 'prime'
 
-def divisor(x)
-    cnt = 0
-    1.upto(x) do |i|
-        cnt += 1 if x%i==0
+def divisor(n)
+    arr = []
+    i = 1
+    while (i*i) <= n
+        if n%i==0
+            arr.push(i)
+            arr.push(n/i) if n/i != i
+        end
+        i += 1
     end
     
-    cnt
+    arr = arr.uniq
+    arr.size
 end
 
 def solution(left, right)
